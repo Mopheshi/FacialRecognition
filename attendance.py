@@ -82,7 +82,8 @@ while True:
             name = classNames[matchIndex].upper()
             # print(name)
             y1, x2, y2, x1 = faceLocation
-            y1, x2, y2, x1 = y1 * 4, x2 * 4, y2 * 4, x1 * 4
+            y1, x2, y2, x1 = y1 * 4, x2 * 4, y2 * 4, x1 * 4  # multiply all angles by 4 to regenerate original image
+            # from small image (0.25 or .25 or 1/4) to normal scale
             cv2.rectangle(image, (x1, y1),
                           (x2, y1), (0, 255, 0),
                           2)  # draw a green rectangle surrounding the detected face(s) in WebCam...
