@@ -1,4 +1,5 @@
-import cv2, numpy as np, face_recognition
+import cv2
+import face_recognition
 
 # load images and covert them to RGB
 mopheshi = face_recognition.load_image_file("ImagesBasic/mophe.jpg")
@@ -10,9 +11,9 @@ test = cv2.cvtColor(test, cv2.COLOR_BGR2RGB)
 faceLocations = face_recognition.face_locations(mopheshi)[0]
 # encode detected face in 128-dimensions of the provided image parameter
 encodeMopheshi = face_recognition.face_encodings(mopheshi)[0]
-# draw a rectangle surrounding the detected face in the image provided...
-# print(faceLocations) prints (top, right, bottom, left) coordinates of the detected face in the image...
-# 2 (last parameter) is the thickness of the rectangle to be drawn around the detected face in the image
+# draw a green rectangle with a thickness of 2 pixels surrounding the detected face in the image provided... print(
+# faceLocations) prints (top (y1), right (x2), bottom (y2), left (x1)) coordinates of the detected face in the
+# image... 2 (last parameter) is the thickness of the rectangle to be drawn around the detected face in the image
 cv2.rectangle(mopheshi, (faceLocations[3], faceLocations[0]), (faceLocations[1], faceLocations[2]), (0, 255, 0), 2)
 
 # detect face in test image
